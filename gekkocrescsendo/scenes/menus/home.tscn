@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://ban51omr73f0i"]
+
+[ext_resource type="FontFile" uid="uid://8bhixb7w81m0" path="res://assets/fonts/FiraSans-ExtraLight.ttf" id="1_sm3m8"]
+[ext_resource type="Script" path="res://scenes/menus/button.gd" id="2_etfqj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w2tb8"]
+font = ExtResource("1_sm3m8")
+font_size = 40
+font_color = Color(0.76068, 0.510269, 0.43011, 1)
+
+[sub_resource type="Gradient" id="Gradient_3urr0"]
+colors = PackedColorArray(0.290196, 0.152941, 0.156863, 1, 0.841433, 0.610544, 0.612702, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ojma"]
+gradient = SubResource("Gradient_3urr0")
+width = 220
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.29059, 0.152111, 0.158813, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 225.0
+offset_right = 772.0
+offset_bottom = 310.0
+text = "Gecko Wacko"
+label_settings = SubResource("LabelSettings_w2tb8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 296.0
+offset_right = 609.0
+offset_bottom = 327.0
+focus_mode = 0
+text = "PLAY"
+icon = SubResource("GradientTexture1D_3ojma")
+flat = true
+script = ExtResource("2_etfqj")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
