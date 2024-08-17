@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bksd4ltaxd5di"]
+
+[ext_resource type="PackedScene" uid="uid://bgoqnw4t30afo" path="res://player/assets/gecko.fbx" id="1_3v2rt"]
+[ext_resource type="Script" path="res://player/assets/gecko.gd" id="2_0w4p3"]
+
+[node name="DeckoPlayer" type="Node3D"]
+
+[node name="gecko" parent="." instance=ExtResource("1_3v2rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00113773, 0.0342159, -0.0515261)
+script = ExtResource("2_0w4p3")
