@@ -17,7 +17,7 @@ env:
   ITCH_PROJECT_NAME: "gecko-crescendo"
   ITCH_USERNAME: "tvrheenen"
   RCEDIT_SOURCE: "https://github.com/electron/rcedit/releases/download/v1.1.1/rcedit-x86.exe"
-  PROJECT_PATH: "gekkocrescsendo/project.godot"
+  PROJECT_PATH: "./gekkocrescsendo"
 
 jobs:
   Build_Exports:
@@ -51,7 +51,6 @@ jobs:
       - name: Export Windows Port
         run: |
           mkdir ./temp_exports/windows
-          dir
           ./godot --path ${{ env.PROJECT_PATH }} --export "Windows Desktop" ./temp_exports/windows/$PROJECT_NAME.exe
       # - name: Export Mac Port
       #   run: |
