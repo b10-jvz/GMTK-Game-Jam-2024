@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4ne6qqdfg0vp"]
+[gd_scene load_steps=7 format=3 uid="uid://b67mmsuoiwtwo"]
 
 [ext_resource type="Script" path="res://scenes/levels/canyon.gd" id="1_mfnee"]
 [ext_resource type="PackedScene" uid="uid://6fmg8wklvy1t" path="res://FancyPlayer.tscn" id="2_bs15a"]
+[ext_resource type="PackedScene" uid="uid://cugq1jlkn13bu" path="res://friendly_gecko_body_3d.tscn" id="2_dcqcu"]
 
 [sub_resource type="Environment" id="Environment_25ixr"]
 
@@ -9,24 +10,11 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1aoop"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_myhoh"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kmvrd"]
-
 [node name="Canyon" type="Node3D"]
 script = ExtResource("1_mfnee")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_25ixr")
-
-[node name="Player" type="CSGBox3D" parent="."]
-transform = Transform3D(0.957365, 0, 0.288881, 0, 1, 0, -0.288881, 0, 0.957365, 0, 0.455693, 0.0785303)
-visible = false
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.969325, 0.093406, -0.22734, 0, 0.924971, 0.380037, 0.245781, -0.36838, 0.896598, -1.31733, 2.23767, 4.7787)
-
-[node name="Player3DBody" parent="." instance=ExtResource("2_bs15a")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -0.292554, 0)
@@ -42,11 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2878, 0)
 light_energy = 16.0
 omni_range = 67.272
 
-[node name="FriendlyGeckoBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+[node name="FriendlyGeckoBody3D" parent="." instance=ExtResource("2_dcqcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.47971)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FriendlyGeckoBody3D"]
-shape = SubResource("BoxShape3D_myhoh")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FriendlyGeckoBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_kmvrd")
+[node name="Player3DBody" parent="." instance=ExtResource("2_bs15a")]
