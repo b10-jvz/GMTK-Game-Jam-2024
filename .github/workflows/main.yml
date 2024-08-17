@@ -7,7 +7,6 @@ on:
       - main
       - deployment-pipeline
     paths-ignore:
-      - '.github/workflows/**'
       - '.gitignore'
       - '**.md'
 
