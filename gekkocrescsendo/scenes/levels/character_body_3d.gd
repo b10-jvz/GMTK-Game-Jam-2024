@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 50.0
+const SPEED = 500.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0
 
@@ -24,10 +24,10 @@ func _physics_process(delta: float) -> void:
 		rotate_y(-ROTATION_SPEED * delta)
 	
 	if Input.is_action_pressed("ui_up"):
-		velocity = global_transform.basis.z.normalized()
+		velocity = global_transform.basis.z.normalized() * SPEED * delta
 		
 	if Input.is_action_pressed("ui_down"):
-		velocity = global_transform.basis.z.normalized() * -1
+		velocity = global_transform.basis.z.normalized() * -1 * SPEED * delta
 		
 	if !Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down"):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
