@@ -17,7 +17,7 @@ env:
   ITCH_PROJECT_NAME: "gecko-crescendo"
   ITCH_USERNAME: "tvrheenen"
   RCEDIT_SOURCE: "https://github.com/electron/rcedit/releases/download/v1.1.1/rcedit-x86.exe"
-  PROJECT_PATH: "./gekkocrescsendo/project.godot"
+  PROJECT_PATH: "gekkocrescsendo/project.godot"
 
 jobs:
   Build_Exports:
@@ -51,15 +51,16 @@ jobs:
       - name: Export Windows Port
         run: |
           mkdir ./temp_exports/windows
+          dir
           ./godot --path ${{ env.PROJECT_PATH }} --export "Windows Desktop" ./temp_exports/windows/$PROJECT_NAME.exe
-      - name: Export Mac Port
-        run: |
-          mkdir ./exports/mac
-          ./godot --path ${{ env.PROJECT_PATH }} --export "Mac OSX" ./exports/mac/$PROJECT_NAME.zip
-      - name: Export Linux Port
-        run: |
-          mkdir ./exports/linux
-          ./godot --path ${{ env.PROJECT_PATH }} --export "Linux/X11" ./exports/linux/$PROJECT_NAME.x86_64
+      # - name: Export Mac Port
+      #   run: |
+      #     mkdir ./exports/mac
+      #     ./godot --path ${{ env.PROJECT_PATH }} --export "Mac OSX" ./exports/mac/$PROJECT_NAME.zip
+      # - name: Export Linux Port
+      #   run: |
+      #     mkdir ./exports/linux
+      #     ./godot --path ${{ env.PROJECT_PATH }} --export "Linux/X11" ./exports/linux/$PROJECT_NAME.x86_64
       - name: Add Version Number to Exports
         run: |
           cp ./version.txt ./exports/version.txt
