@@ -51,6 +51,7 @@ jobs:
       - name: Export Windows Port
         run: |
           mkdir ./temp_exports/windows
+          ./godot --rendering-driver opengl3
           ./godot --path ${{ env.PROJECT_PATH }} --export-release "Windows Desktop" ./temp_exports/windows/$PROJECT_NAME.exe
       # - name: Export Mac Port
       #   run: |
