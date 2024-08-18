@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GekkoCrescsendo"
-run/main_scene="res://scenes/levels/slab-level/slab-level.tscn"
+run/main_scene="res://scenes/levels/canyon.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
