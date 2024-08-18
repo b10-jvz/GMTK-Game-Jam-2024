@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cyk62cwukf4oy"
+path="res://.godot/imported/Layer 3 GMTK2024 Gecko Crescendo Woodwinds.ogg-7bc92f1ce9264d9940fd1d08801ab5ae.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Layer 3 GMTK2024 Gecko Crescendo Woodwinds.ogg"
+dest_files=["res://.godot/imported/Layer 3 GMTK2024 Gecko Crescendo Woodwinds.ogg-7bc92f1ce9264d9940fd1d08801ab5ae.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,8 @@
-[gd_scene load_steps=65 format=3 uid="uid://c4sr2nlxjilc2"]
+[gd_scene load_steps=66 format=3 uid="uid://c4sr2nlxjilc2"]
 
 [ext_resource type="PackedScene" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
 [ext_resource type="PackedScene" uid="uid://6fmg8wklvy1t" path="res://FancyPlayer.tscn" id="2_ysbwk"]
+[ext_resource type="PackedScene" uid="uid://cugq1jlkn13bu" path="res://friendly_gecko_body_3d.tscn" id="3_sxpag"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0nfvw"]
 
@@ -520,3 +521,18 @@ mesh = SubResource("PrismMesh_1yqb4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain1/ramp2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gvcyq")
+
+[node name="FriendlyGeckoBody3D" parent="." instance=ExtResource("3_sxpag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9929, 17.0673, 53.963)
+
+[node name="FriendlyGeckoBody3D2" parent="." instance=ExtResource("3_sxpag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8849, 16.5747, 53.963)
+
+[node name="FriendlyGeckoBody3D3" parent="." instance=ExtResource("3_sxpag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83983, 15.9284, 53.963)
+
+[node name="FriendlyGeckoBody3D4" parent="." instance=ExtResource("3_sxpag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.46794, 15.5328, 53.963)
+
+[node name="FriendlyGeckoBody3D5" parent="." instance=ExtResource("3_sxpag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4987, 17.7581, 53.963)

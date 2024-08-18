@@ -16,7 +16,7 @@ func _init() -> void:
 	
 func _ready():
 	FollowNodes = $FollowNodes.get_children()
-	#(get_tree().root.get_node("/root/GameState")).Player = self
+	(get_tree().root.get_node("/root/GameState")).Player = self
 	
 
 func _physics_process(delta: float) -> void:
@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 		
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("ui_select")):
-		var boulderThreshold = lookingAt.TargetNodes.size()
+	 	var boulderThreshold = lookingAt.TargetNodes.size()
 		
 		for i in range (0,boulderThreshold):
 			var partyMemberToDeploy = MyParty.pop_back()
