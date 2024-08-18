@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtaa8yapykuke"
+path="res://.godot/imported/boulder.obj-028474f53e9eefc2f76a4f10a074234a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/boulder.obj-028474f53e9eefc2f76a4f10a074234a.mesh"]
+
+source_file="res://scenes/levels/canyon/assets/boulder.obj"
+dest_files=["res://.godot/imported/boulder.obj-028474f53e9eefc2f76a4f10a074234a.mesh", "res://.godot/imported/boulder.obj-028474f53e9eefc2f76a4f10a074234a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

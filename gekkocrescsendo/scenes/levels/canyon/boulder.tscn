@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://dggihl0bv1ba8"]
+
+[ext_resource type="ArrayMesh" uid="uid://dpp5g6sbkqjeh" path="res://scenes/levels/canyon/assets/boulder2.obj" id="1_kgmjo"]
+[ext_resource type="Script" path="res://scenes/levels/canyon/boulder.gd" id="1_qudxq"]
+[ext_resource type="ArrayMesh" uid="uid://dkvfpemdbnm0j" path="res://scenes/levels/canyon/assets/boulder3.obj" id="2_5tluu"]
+[ext_resource type="ArrayMesh" uid="uid://dtaa8yapykuke" path="res://scenes/levels/canyon/assets/boulder.obj" id="3_v560y"]
+
+[sub_resource type="Animation" id="Animation_y0y18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g5t1s"]
+resource_name = "roll"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0o65"]
+_data = {
+"RESET": SubResource("Animation_y0y18"),
+"roll": SubResource("Animation_g5t1s")
+}
+
+[node name="Boulder" type="Node3D"]
+script = ExtResource("1_qudxq")
+BoulderType = 2
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="Boulder" type="MeshInstance3D" parent="Meshes"]
+visible = false
+mesh = ExtResource("3_v560y")
+skeleton = NodePath("")
+
+[node name="Boulder3" type="MeshInstance3D" parent="Meshes"]
+visible = false
+mesh = ExtResource("2_5tluu")
+skeleton = NodePath("")
+
+[node name="Boulder2" type="MeshInstance3D" parent="Meshes"]
+mesh = ExtResource("1_kgmjo")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v0o65")
+}

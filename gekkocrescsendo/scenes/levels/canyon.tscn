@@ -13,7 +13,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1aoop"]
 
-[node name="Canyon" type="Node3D"]
+[node name="Canyon2" type="Node3D"]
 script = ExtResource("1_mfnee")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
