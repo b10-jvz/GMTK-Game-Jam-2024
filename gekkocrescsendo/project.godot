@@ -22,3 +22,7 @@ GameState="*res://GameState.tscn"
 [dotnet]
 
 project/assembly_name="GekkoCrescsendo"
+
+[filesystem]
+
+import/blender/enabled=false
