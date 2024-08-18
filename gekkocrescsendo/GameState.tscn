@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://duhfnmtcvsw4w"]
+
+[ext_resource type="Script" path="res://game_state.gd" id="1_48sfu"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_48sfu")
+
+[node name="MusicLayers" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicLayers"]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MusicLayers"]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="MusicLayers"]
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="MusicLayers"]
