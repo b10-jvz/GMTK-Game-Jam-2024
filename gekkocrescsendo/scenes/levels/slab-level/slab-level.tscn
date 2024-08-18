@@ -1,6 +1,6 @@
 [gd_scene load_steps=65 format=3 uid="uid://c4sr2nlxjilc2"]
 
-[ext_resource type="PackedScene" uid="uid://ck58gmejxsh4j" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
+[ext_resource type="PackedScene" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
 [ext_resource type="PackedScene" uid="uid://6fmg8wklvy1t" path="res://FancyPlayer.tscn" id="2_ysbwk"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0nfvw"]
@@ -202,6 +202,9 @@ data = PackedVector3Array(1.5, 1, 10, 1.5, -1, 10, -1.5, -1, 10, 1.5, 1, -10, -1
 
 [node name="Slab-level" type="Node3D"]
 transform = Transform3D(0.765554, 0, 0, 0, 0.765554, 0, 0, 0, 0.765554, 0, 0, -54.5441)
+
+[node name="Player3DBody" parent="." instance=ExtResource("2_ysbwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6248, 53.3211)
 
 [node name="THEfloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(80.5893, 0, 0, 0, -6.17949e-06, 3.02263, 0, -141.37, -1.32123e-07, -0.0193005, -0.0162419, 14.7604)
@@ -433,9 +436,6 @@ mesh = SubResource("PrismMesh_668qb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StraightRamps/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_kpd2u")
-
-[node name="Player3DBody" parent="." instance=ExtResource("2_ysbwk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.7512, 39.7358)
 
 [node name="Terrain1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.5487, -45.1058)

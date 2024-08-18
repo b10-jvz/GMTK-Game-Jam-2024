@@ -49,6 +49,7 @@ radius = 1.32693
 
 [node name="Boulder" type="Node3D"]
 script = ExtResource("1_qudxq")
+BoulderType = 0
 
 [node name="Meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.473734, 0)

@@ -16,7 +16,7 @@ func _init() -> void:
 	
 func _ready():
 	FollowNodes = $FollowNodes.get_children()
-	(get_tree().root.get_node("/root/GameState") as GameState).Player = self
+	#(get_tree().root.get_node("/root/GameState")).Player = self
 	
 
 func _physics_process(delta: float) -> void:
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
-
+	$gecko/AnimationPlayer.play("Armature_006")
 	
 	if Input.is_action_pressed("ui_left"):
 		rotate_y(ROTATION_SPEED * delta)
@@ -45,6 +45,9 @@ func _physics_process(delta: float) -> void:
 	if !Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down"):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	if !Input.is_anything_pressed():
+		$gecko/AnimationPlayer.pause()
 	
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)

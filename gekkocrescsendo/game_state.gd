@@ -14,5 +14,6 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var streams = $MusicLayers.get_children()
+	if Player == null: return
 	for i in Player.MyParty.size():
 		(streams[i] as AudioStreamPlayer).volume_db = 0.0
