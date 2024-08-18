@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6fmg8wklvy1t"]
+[gd_scene load_steps=8 format=3 uid="uid://6fmg8wklvy1t"]
 
 [ext_resource type="Script" path="res://scenes/levels/character_body_3d.gd" id="1_sjjkj"]
+[ext_resource type="PackedScene" uid="uid://c1l8wfna72n2v" path="res://player/assets/gecko.glb" id="2_iwcx8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1v64q"]
 radius = 0.644001
@@ -21,11 +22,15 @@ height = 0.2
 [node name="Player3DBody" type="CharacterBody3D"]
 script = ExtResource("1_sjjkj")
 
+[node name="gecko" parent="." instance=ExtResource("2_iwcx8")]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, 0, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_1v64q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 mesh = SubResource("BoxMesh_8tv5w")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -38,38 +43,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_4fca0")
 
 [node name="FollowNode1" type="Node3D" parent="." groups=["FollowNodes"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.776, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37873, 0, 0)
 
 [node name="debugSphere" type="MeshInstance3D" parent="FollowNode1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
 mesh = SubResource("SphereMesh_yc0f5")
 
-[node name="FollowNode2" type="Node3D" parent="." groups=["FollowNodes"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15221, 0, 0.17057)
+[node name="FollowNode5" type="Node3D" parent="." groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.967, 0, 0)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45804, 0.640827, 0)
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNode5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="FollowNode4" type="Node3D" parent="." groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78951, 0, 0.812078)
+
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNode4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
 mesh = SubResource("SphereMesh_yc0f5")
 
 [node name="FollowNode3" type="Node3D" parent="." groups=["FollowNodes"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09389, 0, -1.20655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66948, 0, 0.860747)
 
 [node name="debugSphere" type="MeshInstance3D" parent="FollowNode3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640827, 2.27598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
 mesh = SubResource("SphereMesh_yc0f5")
 
-[node name="FollowNode4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67814, 0, -1.21267)
+[node name="FollowNode2" type="Node3D" parent="." groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066038, 0, 2.1067)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode4" groups=["FollowNodes"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493056, 0.640827, 2.21163)
-mesh = SubResource("SphereMesh_yc0f5")
-
-[node name="FollowNode5" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00515604, 0, -1.13123)
-
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode5" groups=["FollowNodes"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640827, 2.92307)
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNode2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
 mesh = SubResource("SphereMesh_yc0f5")
 
 [connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]

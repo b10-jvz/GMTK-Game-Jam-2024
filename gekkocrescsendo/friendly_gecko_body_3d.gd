@@ -8,16 +8,28 @@ const JUMP_VELOCITY = 4.5
 
 func _physics_process(delta: float) -> void:	
 	if targetNode == null: return
+	self.look_at(targetNode.global_position)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	var direction := (targetNode.global_position - global_position).normalized();
+	$gecko/AnimationPlayer.play("Armature_006")
+
+	var direction := targetNode.global_position - global_position
+	
+	if direction.length() < 0.2:
+		$gecko/AnimationPlayer.pause()
+		return
+	else:
+		direction = direction.normalized()
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		$gecko/AnimationPlayer.pause()
 
+	
 	move_and_slide()
