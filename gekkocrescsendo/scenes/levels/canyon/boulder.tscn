@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dggihl0bv1ba8"]
+[gd_scene load_steps=8 format=3 uid="uid://delx2wn25t3lm"]
 
 [ext_resource type="ArrayMesh" uid="uid://dpp5g6sbkqjeh" path="res://scenes/levels/canyon/assets/boulder2.obj" id="1_kgmjo"]
 [ext_resource type="Script" path="res://scenes/levels/canyon/boulder.gd" id="1_qudxq"]
@@ -44,7 +44,7 @@ _data = {
 
 [node name="Boulder" type="Node3D"]
 script = ExtResource("1_qudxq")
-BoulderType = 2
+BoulderType = 1
 
 [node name="Meshes" type="Node3D" parent="."]
 
@@ -54,11 +54,11 @@ mesh = ExtResource("3_v560y")
 skeleton = NodePath("")
 
 [node name="Boulder3" type="MeshInstance3D" parent="Meshes"]
-visible = false
 mesh = ExtResource("2_5tluu")
 skeleton = NodePath("")
 
 [node name="Boulder2" type="MeshInstance3D" parent="Meshes"]
+visible = false
 mesh = ExtResource("1_kgmjo")
 skeleton = NodePath("")
 
