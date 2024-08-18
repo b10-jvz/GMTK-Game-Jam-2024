@@ -41,39 +41,70 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TouchArea"]
 shape = SubResource("BoxShape3D_4fca0")
 
-[node name="FollowNode1" type="Node3D" parent="." groups=["FollowNodes"]]
+[node name="FollowNodes" type="Node3D" parent="."]
+
+[node name="FollowNode1" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37873, 0, 0)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode1"]
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
 mesh = SubResource("SphereMesh_yc0f5")
 
-[node name="FollowNode5" type="Node3D" parent="." groups=["FollowNodes"]]
+[node name="FollowNode5" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.967, 0, 0)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode5"]
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
 mesh = SubResource("SphereMesh_yc0f5")
 
-[node name="FollowNode4" type="Node3D" parent="." groups=["FollowNodes"]]
+[node name="FollowNode4" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78951, 0, 0.812078)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode4"]
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
 mesh = SubResource("SphereMesh_yc0f5")
 
-[node name="FollowNode3" type="Node3D" parent="." groups=["FollowNodes"]]
+[node name="FollowNode3" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66948, 0, 0.860747)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode3"]
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
 mesh = SubResource("SphereMesh_yc0f5")
 
-[node name="FollowNode2" type="Node3D" parent="." groups=["FollowNodes"]]
+[node name="FollowNode2" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066038, 0, 2.1067)
 
-[node name="debugSphere" type="MeshInstance3D" parent="FollowNode2"]
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
 mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.816077, -0.577943, 0, 0.577943, 0.816077, 0, 0, -1.73685)
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+debug_shape_custom_color = Color(0.432311, 0.103257, 0.756749, 1)
+
+[node name="InterractText" type="Label" parent="."]
+visible = false
+offset_left = 553.0
+offset_top = 607.0
+offset_right = 593.0
+offset_bottom = 630.0
+text = "Press E to interract"
+
+[node name="PlayerPartySize" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 580.0
+offset_right = 627.0
+offset_bottom = 603.0
+text = "Party size"
+
+[node name="RockFollowNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.40011)
 
 [connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
