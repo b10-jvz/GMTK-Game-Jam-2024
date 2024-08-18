@@ -1,6 +1,6 @@
 extends CharacterBody3D
 class_name Player
-const SPEED = 500.0
+const SPEED = 400.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0
 
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	$gecko/AnimationPlayer.play("Armature_003")
+	$gecko/AnimationPlayer.play("Armature_006")
 	
 	if Input.is_action_pressed("ui_left"):
 		rotate_y(ROTATION_SPEED * delta)
