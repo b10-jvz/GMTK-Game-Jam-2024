@@ -14,6 +14,7 @@ var _type = 0
 @export_enum("Sharp","Smooth","Chunky") var BoulderType : set = _set_type, get = _get_type
 
 func _set_type(type):
+	if($Meshes == null):return
 	_type = type
 	var boulders = $Meshes.get_children()
 	for boulder in boulders:
