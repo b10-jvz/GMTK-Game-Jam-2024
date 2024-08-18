@@ -5,5 +5,6 @@
 [node name="DeckoPlayer" type="Node3D"]
 
 [node name="gecko" parent="." instance=ExtResource("1_3mqk0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="@AnimationPlayer@42536" type="AnimationPlayer" parent="gecko"]
