@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck58gmejxsh4j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyq67"]
+albedo_color = Color(0.63898, 0.375158, 1.92523e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pbrgn"]
+material = SubResource("StandardMaterial3D_hyq67")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qtyem"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Slab" type="Node3D"]
+
+[node name="Slabmesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.05736, 0, 0, 0, 0.260071, 0, 0, 0, 2.83889, 0, 0, 0)
+mesh = SubResource("BoxMesh_pbrgn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Slabmesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slabmesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qtyem")
