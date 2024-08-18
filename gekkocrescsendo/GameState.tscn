@@ -8,9 +8,26 @@ script = ExtResource("1_48sfu")
 [node name="MusicLayers" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicLayers"]
+volume_db = -80.0
+autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MusicLayers"]
+volume_db = -80.0
+autoplay = true
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="MusicLayers"]
+volume_db = -80.0
+autoplay = true
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="MusicLayers"]
+volume_db = -80.0
+autoplay = true
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="MusicLayers"]
+volume_db = -80.0
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

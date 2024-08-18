@@ -62,16 +62,10 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta: float) -> void:	
-	
-				
-		
 	if FollowNode == null: return
 	# Add the gravity.
-
-	var direction := FollowNode.global_position - global_position
-	
-	direction = direction.normalized()
-	
+	var direction := FollowNode.global_position - global_position	
+	direction = direction.normalized()	
 	global_position += direction * delta * SPEED
 
 func _on_timer_timeout() -> void:

@@ -10,3 +10,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_timer_timeout() -> void:
+	var streams = $MusicLayers.get_children()
+	for i in Player.MyParty.size():
+		(streams[i] as AudioStreamPlayer).volume_db = 0.0
