@@ -4,6 +4,12 @@ const SPEED = 500.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0
 
+var MyParty : Array = []
+var RNG : RandomNumberGenerator
+
+func _init() -> void:
+	
+	RNG = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -40,7 +46,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_touch_area_body_entered(body: Node3D) -> void:	
-	if body is FriendlyGecko:
-		body.targetNode = $FollowNode1	
+	if body is FriendlyGecko and !MyParty.has(body):
+		var followNodeIndex = RNG.randi_range(0,4)
+		var TargetNodes = [$FollowNode1, $FollowNode2, $FollowNode3, $FollowNode4, $FollowNode5]
+		var takenTargetNodes = MyParty.map(func(x): return x.targetNode)		
+		
+		body.targetNode = TargetNodes[MyParty.size() - 1]
+		MyParty.append(body)
 		print(body.name + " touched me, hees following ME")
 	pass # Replace with function body.

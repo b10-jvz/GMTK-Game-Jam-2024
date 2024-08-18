@@ -31,6 +31,18 @@ light_energy = 16.0
 omni_range = 67.272
 
 [node name="FriendlyGeckoBody3D" parent="." instance=ExtResource("2_dcqcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.47971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.4698)
+
+[node name="FriendlyGeckoBody3D5" parent="." instance=ExtResource("2_dcqcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7916, 0, -9.26334)
+
+[node name="FriendlyGeckoBody3D4" parent="." instance=ExtResource("2_dcqcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2752, 0, -10.4698)
+
+[node name="FriendlyGeckoBody3D3" parent="." instance=ExtResource("2_dcqcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2348, 0, 11.5674)
+
+[node name="FriendlyGeckoBody3D2" parent="." instance=ExtResource("2_dcqcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8944, 0, 11.9749)
 
 [node name="Player3DBody" parent="." instance=ExtResource("2_bs15a")]

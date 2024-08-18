@@ -12,7 +12,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	var direction := (targetNode.global_position - global_position).normalized();
+	var direction := targetNode.global_position - global_position
+	
+	if direction.length() < 0.2:
+		return
+	else:
+		direction = direction.normalized()
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
