@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/levels/character_body_3d.gd" id="1_sjjkj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a82t6"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_1v64q"]
+radius = 0.644001
 
 [sub_resource type="BoxMesh" id="BoxMesh_8tv5w"]
 
@@ -22,7 +23,7 @@ script = ExtResource("1_sjjkj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_a82t6")
+shape = SubResource("SphereShape3D_1v64q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("BoxMesh_8tv5w")
