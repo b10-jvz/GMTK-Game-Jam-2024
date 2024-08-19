@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dggihl0bv1ba8"]
+[gd_scene load_steps=8 format=3 uid="uid://dggihl0bv1ba8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dpp5g6sbkqjeh" path="res://scenes/levels/canyon/assets/boulder2.obj" id="1_kgmjo"]
 [ext_resource type="Script" path="res://scenes/levels/canyon/boulder.gd" id="1_qudxq"]
@@ -42,28 +42,22 @@ _data = {
 "roll": SubResource("Animation_g5t1s")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_djob5"]
-radius = 1.32693
-
-[sub_resource type="SphereMesh" id="SphereMesh_cl2f0"]
-
 [node name="Boulder" type="Node3D"]
 script = ExtResource("1_qudxq")
-BoulderType = 0
 
 [node name="Meshes" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.473734, 0)
 
 [node name="Boulder" type="MeshInstance3D" parent="Meshes"]
+visible = false
 mesh = ExtResource("3_v560y")
 skeleton = NodePath("")
 
 [node name="Boulder3" type="MeshInstance3D" parent="Meshes"]
+visible = false
 mesh = ExtResource("2_5tluu")
 skeleton = NodePath("")
 
 [node name="Boulder2" type="MeshInstance3D" parent="Meshes"]
-visible = false
 mesh = ExtResource("1_kgmjo")
 skeleton = NodePath("")
 
@@ -71,42 +65,3 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_v0o65")
 }
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.637043, 0)
-collision_layer = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("SphereShape3D_djob5")
-
-[node name="TargetNodes" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333844, 0)
-
-[node name="TargetNode" type="Node3D" parent="TargetNodes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0312816, 0, -1.41755)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetNodes/TargetNode"]
-transform = Transform3D(0.392115, 0, 0, 0, 0.392115, 0, 0, 0, 0.392115, 0, 0, 0)
-visible = false
-mesh = SubResource("SphereMesh_cl2f0")
-
-[node name="TargetNode2" type="Node3D" parent="TargetNodes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28246, -4.76837e-07, -0.424513)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetNodes/TargetNode2"]
-transform = Transform3D(0.392115, 0, 0, 0, 0.392115, 0, 0, 0, 0.392115, 0, 0, 0)
-visible = false
-mesh = SubResource("SphereMesh_cl2f0")
-
-[node name="TargetNode3" type="Node3D" parent="TargetNodes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02572, 4.76837e-07, -0.471149)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetNodes/TargetNode3"]
-transform = Transform3D(0.392115, 0, 0, 0, 0.392115, 0, 0, 0, 0.392115, 0, 0, 0)
-visible = false
-mesh = SubResource("SphereMesh_cl2f0")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

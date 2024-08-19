@@ -12,6 +12,7 @@ radius = 0.938925
 
 [node name="Tree" type="Node3D"]
 script = ExtResource("1_8yqf6")
+BoulderType = 0
 
 [node name="Sprites" type="Node3D" parent="."]
 

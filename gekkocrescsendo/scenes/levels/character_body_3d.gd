@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 		
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("ui_select")):
-	 	var boulderThreshold = lookingAt.TargetNodes.size()
+		var boulderThreshold = lookingAt.TargetNodes.size()
 		
 		for i in range (0,boulderThreshold):
 			var partyMemberToDeploy = MyParty.pop_back()
