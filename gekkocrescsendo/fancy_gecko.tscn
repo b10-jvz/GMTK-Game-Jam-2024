@@ -6,11 +6,11 @@
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(-0.700003, -1.65025e-08, -0.000303678, 0.71414)
-bones/3/rotation = Quaternion(-0.397877, -0.00358664, 0.00608431, 0.917412)
+bones/3/rotation = Quaternion(-0.395489, 6.11212e-10, 0.00840973, 0.918432)
 bones/5/rotation = Quaternion(0.663655, 4.2715e-08, -0.00172717, 0.748037)
-bones/6/rotation = Quaternion(0.472405, 0.0132565, -0.0122258, 0.881197)
+bones/6/rotation = Quaternion(0.467994, 1.75658e-09, 0.00900695, 0.883686)
 bones/8/rotation = Quaternion(0.997362, -3.81085e-08, -8.03399e-07, -0.0725912)
-bones/9/rotation = Quaternion(0.647337, 0.0239785, -0.0183618, 0.761605)
+bones/9/rotation = Quaternion(0.651255, -1.98952e-13, -1.05843e-06, 0.758859)
 bones/12/rotation = Quaternion(-0.736167, 9.19713e-13, 1.19643e-06, 0.6768)
 bones/15/rotation = Quaternion(0.169817, 0.00114225, -0.00373755, 0.985468)
 bones/16/rotation = Quaternion(0.372056, 2.3244e-08, 0.00338523, 0.928204)

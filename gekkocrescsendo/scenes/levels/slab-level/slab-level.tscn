@@ -1,10 +1,13 @@
-[gd_scene load_steps=66 format=3 uid="uid://c4sr2nlxjilc2"]
+[gd_scene load_steps=79 format=3 uid="uid://c4sr2nlxjilc2"]
 
 [ext_resource type="PackedScene" uid="uid://ck58gmejxsh4j" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
 [ext_resource type="Script" path="res://scenes/levels/slab-level/slab_level.gd" id="1_nltks"]
 [ext_resource type="PackedScene" uid="uid://6fmg8wklvy1t" path="res://FancyPlayer.tscn" id="2_ysbwk"]
 [ext_resource type="PackedScene" uid="uid://cugq1jlkn13bu" path="res://friendly_gecko_body_3d.tscn" id="3_sxpag"]
 [ext_resource type="PackedScene" uid="uid://dggihl0bv1ba8" path="res://scenes/levels/canyon/boulder.tscn" id="4_uo3qn"]
+[ext_resource type="Texture2D" uid="uid://585qq8idscj1" path="res://assets/Untitled.png" id="6_h1ypm"]
+[ext_resource type="Script" path="res://scenes/levels/slab-level/level_goal.gd" id="7_biet2"]
+[ext_resource type="PackedScene" uid="uid://bop7amsxnial6" path="res://assets/trees/Tree.tscn" id="8_c77pi"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0nfvw"]
 
@@ -251,6 +254,67 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h07ta"]
+size = Vector3(14.0381, 28.8065, 111.102)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j50fl"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("6_h1ypm")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uxidu"]
+material = SubResource("StandardMaterial3D_j50fl")
+cap_top = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_msuhg"]
+radius = 0.255981
+
+[sub_resource type="Animation" id="Animation_ylcff"]
+resource_name = "end"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c754v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttf4u"]
+_data = {
+"RESET": SubResource("Animation_c754v"),
+"end": SubResource("Animation_ylcff")
+}
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xyqi"]
+
+[sub_resource type="Sky" id="Sky_5i4rc"]
+sky_material = SubResource("ProceduralSkyMaterial_0xyqi")
+
+[sub_resource type="Environment" id="Environment_h5p7r"]
+background_mode = 2
+sky = SubResource("Sky_5i4rc")
 
 [node name="Slab-level" type="Node3D"]
 transform = Transform3D(0.765554, 0, 0, 0, 0.765554, 0, 0, 0, 0.765554, 0, 0, -54.5441)
@@ -524,7 +588,7 @@ libraries = {
 curve = SubResource("Curve3D_k55u2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="AnimationPlayer/Path3D"]
-transform = Transform3D(-0.0139891, 0.00919329, -0.999854, -0.180836, 0.983436, 0.0115725, 0.983407, 0.180972, -0.012095, -7.87766, 21.5028, 25.4919)
+transform = Transform3D(-0.461387, -0.058935, -0.885232, -0.180607, 0.983128, 0.0286806, 0.868614, 0.173113, -0.464251, -31.3182, 21.4831, 18.639)
 
 [node name="Camera3D" type="Camera3D" parent="AnimationPlayer/Path3D/PathFollow3D"]
 current = true
@@ -565,5 +629,78 @@ CONTROLS
 
 - ALL other keys: Dance"
 
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2992, 0, -52.2252)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51904, 13.9033, 55.0512)
+shape = SubResource("BoxShape3D_h07ta")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.2087, 0, -52.2252)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51904, 13.9033, 55.0512)
+shape = SubResource("BoxShape3D_h07ta")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9871, 0, 58.1489)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51904, 13.9033, 55.0512)
+shape = SubResource("BoxShape3D_h07ta")
+
+[node name="Goal" type="MeshInstance3D" parent="."]
+transform = Transform3D(13.0863, 0, 0, 0, 4.87464, 0, 0, 0, 12.4576, 24.4225, 10.8382, 53.6375)
+mesh = SubResource("CylinderMesh_uxidu")
+script = ExtResource("7_biet2")
+
+[node name="Area3D" type="Area3D" parent="Goal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Goal/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.385722, 0)
+shape = SubResource("CylinderShape3D_msuhg")
+
+[node name="Timer" type="Timer" parent="Goal"]
+wait_time = 3.0
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Goal"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "You Made It!
+Unbelievable! You Actually made it. The last snowball is safe from the sun and it's seed spitting cult!
+
+Long live the broitherhood! Long live the snowball!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Goal"]
+libraries = {
+"": SubResource("AnimationLibrary_ttf4u")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h5p7r")
+
+[node name="Tree" parent="." instance=ExtResource("8_c77pi")]
+transform = Transform3D(1.30624, 0, 0, 0, 1.30624, 0, 0, 0, 1.30624, 35.0157, -0.169946, 11.2219)
+BoulderType = 3
+
+[node name="Tree2" parent="." instance=ExtResource("8_c77pi")]
+transform = Transform3D(1.30624, 0, 0, 0, 1.30624, 0, 0, 0, 1.30624, -32.5448, -0.169946, 72.9204)
+BoulderType = 1
+
+[node name="Tree3" parent="." instance=ExtResource("8_c77pi")]
+transform = Transform3D(1.30624, 0, 0, 0, 1.30624, 0, 0, 0, 1.30624, 27.8631, -0.0196757, 70.4852)
+BoulderType = 2
+
+[node name="Tree4" parent="." instance=ExtResource("8_c77pi")]
+transform = Transform3D(1.30624, 0, 0, 0, 1.30624, 0, 0, 0, 1.30624, -1.42867, 5.18854, 35.9022)
+BoulderType = 3
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
+[connection signal="body_entered" from="Goal/Area3D" to="Goal" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Goal/Timer" to="Goal" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Goal/AnimationPlayer" to="Goal" method="_on_animation_player_animation_finished"]
