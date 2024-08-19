@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		var boulder = $RayCast3D.get_collider().get_parent()
 		if (boulder is Boulder):	
 			boulder.Player = self		
-			$InterractText.text = "Press (E) to interract with " + boulder.name
+			$InterractText.text = "Press (SPACEBAR) to interract with " + boulder.name
 			lookingAt = boulder
 			$InterractText.show()
 	else:
