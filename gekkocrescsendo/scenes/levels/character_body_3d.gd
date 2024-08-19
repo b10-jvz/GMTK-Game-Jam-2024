@@ -17,7 +17,9 @@ func _init() -> void:
 func _ready():
 	FollowNodes = $FollowNodes.get_children()
 	(get_tree().root.get_node("/root/GameState")).Player = self
-	
+	var anim =(get_node("gecko/AnimationPlayer") as AnimationPlayer)
+	anim.get_animation("Armature_006").length = .80
+	anim.speed_scale = 3
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.	

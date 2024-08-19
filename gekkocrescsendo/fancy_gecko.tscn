@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://3anfaxnas0or"]
+
+[ext_resource type="PackedScene" uid="uid://c1l8wfna72n2v" path="res://player/assets/gecko.glb" id="1_5b1n8"]
+
+[node name="gecko" instance=ExtResource("1_5b1n8")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.700003, -1.65025e-08, -0.000303678, 0.71414)
+bones/3/rotation = Quaternion(-0.397877, -0.00358664, 0.00608431, 0.917412)
+bones/5/rotation = Quaternion(0.663655, 4.2715e-08, -0.00172717, 0.748037)
+bones/6/rotation = Quaternion(0.472405, 0.0132565, -0.0122258, 0.881197)
+bones/8/rotation = Quaternion(0.997362, -3.81085e-08, -8.03399e-07, -0.0725912)
+bones/9/rotation = Quaternion(0.647337, 0.0239785, -0.0183618, 0.761605)
+bones/12/rotation = Quaternion(-0.736167, 9.19713e-13, 1.19643e-06, 0.6768)
+bones/15/rotation = Quaternion(0.169817, 0.00114225, -0.00373755, 0.985468)
+bones/16/rotation = Quaternion(0.372056, 2.3244e-08, 0.00338523, 0.928204)
+bones/17/rotation = Quaternion(0.212928, 1.90017e-10, -0.000453027, 0.977068)
+bones/18/rotation = Quaternion(0.448856, -2.54349e-10, -0.000954989, 0.893604)
+bones/19/rotation = Quaternion(0.551552, 2.94782e-10, -0.00117349, 0.83414)
