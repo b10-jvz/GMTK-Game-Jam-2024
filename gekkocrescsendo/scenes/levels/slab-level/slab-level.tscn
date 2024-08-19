@@ -1,6 +1,7 @@
-[gd_scene load_steps=67 format=3 uid="uid://c4sr2nlxjilc2"]
+[gd_scene load_steps=66 format=3 uid="uid://c4sr2nlxjilc2"]
 
-[ext_resource type="PackedScene" uid="uid://dtjnm85sqb06p" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
+[ext_resource type="PackedScene" uid="uid://ck58gmejxsh4j" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
+[ext_resource type="Script" path="res://scenes/levels/slab-level/slab_level.gd" id="1_nltks"]
 [ext_resource type="PackedScene" uid="uid://6fmg8wklvy1t" path="res://FancyPlayer.tscn" id="2_ysbwk"]
 [ext_resource type="PackedScene" uid="uid://cugq1jlkn13bu" path="res://friendly_gecko_body_3d.tscn" id="3_sxpag"]
 [ext_resource type="PackedScene" uid="uid://dggihl0bv1ba8" path="res://scenes/levels/canyon/boulder.tscn" id="4_uo3qn"]
@@ -183,8 +184,77 @@ size = Vector3(3, 2, 20)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gvcyq"]
 data = PackedVector3Array(1.5, 1, 10, 1.5, -1, 10, -1.5, -1, 10, 1.5, 1, -10, -1.5, -1, -10, 1.5, -1, -10, 1.5, 1, 10, 1.5, 1, -10, 1.5, -1, 10, 1.5, 1, -10, 1.5, -1, -10, 1.5, -1, 10, 1.5, 1, -10, 1.5, 1, 10, -1.5, -1, -10, 1.5, 1, 10, -1.5, -1, 10, -1.5, -1, -10, -1.5, -1, 10, 1.5, -1, 10, -1.5, -1, -10, 1.5, -1, 10, 1.5, -1, -10, -1.5, -1, -10)
 
+[sub_resource type="Animation" id="Animation_5jepg"]
+resource_name = "Cutscene"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Path3D/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 16.0333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_b0pyc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Path3D/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fydik"]
+_data = {
+"Cutscene": SubResource("Animation_5jepg"),
+"RESET": SubResource("Animation_b0pyc")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_k55u2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -30.6528, 41.4382, -103.148, 4.87291, 0, -16.5679, -4.87291, 0, 16.5679, -57.5298, 30.4534, -70.0152, -5.77692, 0, -17.834, 5.77692, 0, 17.834, -60.6271, 25.1175, -23.4668, -21.1447, 0, -8.06015, 21.1447, 0, 8.06015, -25.9183, 21.3979, 21.0677, -12.4698, 4.82854, 9.08609, 12.4698, -4.82854, -9.08609, 12.3547, 17.7031, 16.2863, 0, 0, 0, 0, 0, 0, 3.09721, 12.3521, -11.5114),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
 [node name="Slab-level" type="Node3D"]
 transform = Transform3D(0.765554, 0, 0, 0, 0.765554, 0, 0, 0, 0.765554, 0, 0, -54.5441)
+script = ExtResource("1_nltks")
 
 [node name="Player3DBody" parent="." instance=ExtResource("2_ysbwk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6248, 53.3211)
@@ -223,7 +293,7 @@ transform = Transform3D(2.77999, -0.708015, 0, 0.934488, 2.10626, 0, 0, 0, 1.547
 transform = Transform3D(3.21721, 0, 0, 0, 2.22207, 0, 0, 0, 2.3646, 7.17775, 2.29919, -6.93456)
 
 [node name="DifferentSlab" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(10.2056, 0, 0, 0, 1.05887, -1.09647, 0, 0.303906, 3.82033, 0.9923, 0.627346, 2.11533)
+transform = Transform3D(10.2042, 0.0165886, -0.0251674, -0.166049, 1.04942, -1.20727, 0.0148808, 0.334684, 3.7867, 1.71955, 0.640452, 2.06396)
 mesh = SubResource("TubeTrailMesh_ew8c6")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Node3D/DifferentSlab"]
@@ -262,7 +332,7 @@ transform = Transform3D(2.77999, -0.708015, 0, 0.934488, 2.10626, 0, 0, 0, 1.547
 transform = Transform3D(3.21721, 0, 0, 0, 2.22207, 0, 0, 0, 2.3646, 7.17775, 2.29919, -6.93456)
 
 [node name="DifferentSlab" type="MeshInstance3D" parent="Node3D5"]
-transform = Transform3D(10.2056, 0, 0, 0, 1.05887, -1.09647, 0, 0.303906, 3.82033, 0.9923, 0.627346, 2.11533)
+transform = Transform3D(10.1847, 0.0358825, 0.579026, 0.0798754, 1.09638, -1.23731, -1.40232, 0.323054, 4.13484, 0.992302, 0.627345, 2.11533)
 mesh = SubResource("TubeTrailMesh_ew8c6")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Node3D5/DifferentSlab"]
@@ -277,105 +347,6 @@ mesh = SubResource("TubeTrailMesh_ew8c6")
 [node name="StaticBody3D2" type="StaticBody3D" parent="Node3D5/DifferentSlab2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D5/DifferentSlab2/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8336, 9.61678, 19.6334)
-
-[node name="DifferentSlab" type="MeshInstance3D" parent="Node3D2"]
-transform = Transform3D(6.50867, -0.0779159, -0.96589, 0.188613, 1.08035, -0.863453, 1.51046, 0.200841, 4.2699, 1.63927, 1.88404, 2.5896)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/DifferentSlab"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/DifferentSlab/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab2" type="MeshInstance3D" parent="Node3D2"]
-transform = Transform3D(6.46476, -0.199363, 0.79646, 0.952424, 1.06582, 0.93209, -1.40702, -0.19454, 4.29039, 7.94471, 2.221, 2.19119)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/DifferentSlab2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/DifferentSlab2/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab3" type="MeshInstance3D" parent="Node3D2"]
-transform = Transform3D(5.65207, -0.459277, -1.4879, 2.69347, 1.00042, -0.506998, 2.34078, -0.0421797, 4.17609, 8.69806, 3.08796, 6.44946)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/DifferentSlab3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/DifferentSlab3/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="Node3D4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7668, 14.461, 8.62176)
-
-[node name="DifferentSlab" type="MeshInstance3D" parent="Node3D4"]
-transform = Transform3D(7.70342, -0.0779159, -0.96589, 0.223235, 1.08035, -0.863453, 1.78773, 0.200841, 4.2699, 1.35231, 1.50157, 2.40415)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D4/DifferentSlab"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D4/DifferentSlab/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab2" type="MeshInstance3D" parent="Node3D4"]
-transform = Transform3D(6.46476, -0.199363, 0.79646, 0.952424, 1.06582, 0.93209, -1.40702, -0.19454, 4.29039, 7.94471, 2.221, 2.19119)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D4/DifferentSlab2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D4/DifferentSlab2/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab3" type="MeshInstance3D" parent="Node3D4"]
-transform = Transform3D(6.17949, -0.459277, -1.4879, 2.94481, 1.00042, -0.506998, 2.55921, -0.0421797, 4.17609, 7.15913, 2.74579, 6.01761)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D4/DifferentSlab3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D4/DifferentSlab3/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(0.801066, 0, 0.598576, 0, 1, 0, -0.598576, 0, 0.801066, 43.3926, 21.0919, 24.5683)
-
-[node name="DifferentSlab" type="MeshInstance3D" parent="Node3D3"]
-transform = Transform3D(6.4371, -0.169913, -0.985781, 1.51833, 0.997787, 1.59655, 0.96864, -0.434864, 4.04844, 2.36559, 2.30171, 5.94732)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D3/DifferentSlab"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/DifferentSlab/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab4" type="MeshInstance3D" parent="Node3D3"]
-transform = Transform3D(6.50867, -0.0844365, -0.956856, 0.188613, 1.07408, -0.983327, 1.51046, 0.229721, 4.24595, 2.85595, 1.76669, 2.0736)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D3/DifferentSlab4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/DifferentSlab4/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab2" type="MeshInstance3D" parent="Node3D3"]
-transform = Transform3D(6.46476, -0.199363, 0.79646, 0.952424, 1.06582, 0.93209, -1.40702, -0.19454, 4.29039, 7.94471, 2.221, 2.19119)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D3/DifferentSlab2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/DifferentSlab2/StaticBody3D2"]
-shape = SubResource("ConcavePolygonShape3D_eauur")
-
-[node name="DifferentSlab3" type="MeshInstance3D" parent="Node3D3"]
-transform = Transform3D(5.65207, -0.228817, -2.19445, 2.69347, 0.939232, 1.48468, 2.34078, -0.528244, 3.59036, 6.99439, 3.33769, 5.92912)
-mesh = SubResource("TubeTrailMesh_ew8c6")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D3/DifferentSlab3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/DifferentSlab3/StaticBody3D2"]
 shape = SubResource("ConcavePolygonShape3D_eauur")
 
 [node name="Base1" type="Node3D" parent="."]
@@ -461,7 +432,7 @@ mesh = SubResource("BoxMesh_3ppn8")
 shape = SubResource("ConcavePolygonShape3D_ndig8")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Terrain1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0346, -4.48034, 28.8404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2989, 21.0346, -4.48034, 31.5201)
 mesh = SubResource("BoxMesh_def6s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain1/MeshInstance3D3"]
@@ -496,6 +467,15 @@ mesh = SubResource("PrismMesh_88nug")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain1/ramp1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dor4l")
 
+[node name="ramp5" type="MeshInstance3D" parent="Terrain1"]
+transform = Transform3D(3.92991, 0, 0, 0, 1.9692, 0, 0, 0, 0.291568, -2.72068, -4.42821, 41.6925)
+mesh = SubResource("PrismMesh_88nug")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain1/ramp5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain1/ramp5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dor4l")
+
 [node name="ramp3" type="MeshInstance3D" parent="Terrain1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.707, 0.466685, 21.5092)
 mesh = SubResource("PrismMesh_acuay")
@@ -523,9 +503,6 @@ mesh = SubResource("PrismMesh_1yqb4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain1/ramp2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gvcyq")
 
-[node name="FriendlyGeckoBody3D" parent="." instance=ExtResource("3_sxpag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1138, 17.0673, -39.5196)
-
 [node name="FriendlyGeckoBody3D2" parent="." instance=ExtResource("3_sxpag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9901, -0.0756657, 21.0088)
 
@@ -535,8 +512,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1407, 0.18477, 6.67675)
 [node name="FriendlyGeckoBody3D4" parent="." instance=ExtResource("3_sxpag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.28825, 10.4016, -16.4686)
 
-[node name="FriendlyGeckoBody3D5" parent="." instance=ExtResource("3_sxpag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4987, 17.7581, 53.963)
-
 [node name="Boulder" parent="." instance=ExtResource("4_uo3qn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.68302, 28.444)
+transform = Transform3D(3.4, 0, 0, 0, 3.4, 0, 0, 0, 3.4, -19.6555, 21.8656, -37.7472)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fydik")
+}
+
+[node name="Path3D" type="Path3D" parent="AnimationPlayer"]
+curve = SubResource("Curve3D_k55u2")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="AnimationPlayer/Path3D"]
+transform = Transform3D(-0.0139891, 0.00919329, -0.999854, -0.180836, 0.983436, 0.0115725, 0.983407, 0.180972, -0.012095, -7.87766, 21.5028, 25.4919)
+
+[node name="Camera3D" type="Camera3D" parent="AnimationPlayer/Path3D/PathFollow3D"]
+current = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 85.0
+offset_top = 68.0
+offset_right = 575.0
+offset_bottom = 364.0
+text = "Following the events of global warming and the climate wars, the last snowball has fallen into the protection of the scaly heroes of the Gecko brotherhood. 
+
+These brave reptilian guardians have been given the task of protecting and migrating the last remaining ball of ice with the chaniging weather patterns.
+
+You are one of these guardians. Gather your comrades and move the last snowball to safety accross the sahel.
+
+Keep it safe, keep it cool."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = "Instructions"
+position = Vector2i(120, 135)
+size = Vector2i(967, 444)
+ok_button_text = "Let's goo!"
+dialog_text = "Welcome to Gecko Crescendo!
+
+You have to save the last snowball from melting, by moving it accross the canyon.
+To move the giant snowball. you need to gather 3 friendly geckos, by walking up to them and booping them with your nose. 
+
+After finding the party of 3, bring them all to the boulder and press SPACEBAR to tell them to start pushing it. 
+
+After that, guide them with the snowball  back accross the canyon into the safe spot.
+
+CONTROLS
+- WASD / Arrow keys to move with tank controls
+
+- SPACE to order geckos to move the snowbal
+
+- ALL other keys: Dance"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]

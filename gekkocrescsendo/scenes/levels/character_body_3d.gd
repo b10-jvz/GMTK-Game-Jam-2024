@@ -22,6 +22,7 @@ func _ready():
 	anim.speed_scale = 3
 
 func _physics_process(delta: float) -> void:
+	if !get_parent().game_started: return
 	# Add the gravity.	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -60,8 +61,8 @@ func occupy_space(friend:FriendlyGecko):
 	print(targetNode)
 
 func _process(delta: float) -> void:
-	$PlayerPartySize.text = "Player Party Size: " + str(MyParty.size())
-	$PlayerPartySize.show()
+	if !get_parent().game_started: return
+	
 	if($RayCast3D.is_colliding()):
 		var boulder = $RayCast3D.get_collider().get_parent()
 		if (boulder is Boulder):	
@@ -75,6 +76,7 @@ func _process(delta: float) -> void:
 		
 		
 func _input(event: InputEvent) -> void:
+	if !get_parent().game_started: return
 	if(event.is_action_pressed("ui_select") and lookingAt != null):
 		var boulderThreshold = lookingAt.TargetNodes.size()		
 		for i in range (0,boulderThreshold):

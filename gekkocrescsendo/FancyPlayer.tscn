@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6fmg8wklvy1t"]
+[gd_scene load_steps=7 format=3 uid="uid://6fmg8wklvy1t"]
 
 [ext_resource type="Script" path="res://scenes/levels/character_body_3d.gd" id="1_sjjkj"]
 [ext_resource type="PackedScene" uid="uid://3anfaxnas0or" path="res://fancy_gecko.tscn" id="2_5kqgh"]
@@ -6,10 +6,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_1v64q"]
 radius = 0.644001
 
-[sub_resource type="BoxMesh" id="BoxMesh_8tv5w"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4fca0"]
-size = Vector3(1.1, 1.1, 1.1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pflig"]
+height = 4.11078
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sng6k"]
 albedo_color = Color(1, 0, 0, 1)
@@ -29,10 +27,6 @@ transform = Transform3D(-1.09532e-08, 0, 0.25058, 0, 0.25058, 0, -0.25058, 0, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_1v64q")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-visible = false
-mesh = SubResource("BoxMesh_8tv5w")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.981367, 0.192145, 0, -0.192145, 0.981367, 0, 1.60693, 3.46873)
 
@@ -40,7 +34,8 @@ transform = Transform3D(1, 0, 0, 0, 0.981367, 0.192145, 0, -0.192145, 0.981367, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TouchArea"]
-shape = SubResource("BoxShape3D_4fca0")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.411277, 0)
+shape = SubResource("CapsuleShape3D_pflig")
 
 [node name="FollowNodes" type="Node3D" parent="."]
 
@@ -97,13 +92,6 @@ offset_top = 607.0
 offset_right = 593.0
 offset_bottom = 630.0
 text = "Press E to interract"
-
-[node name="PlayerPartySize" type="Label" parent="."]
-offset_left = 552.0
-offset_top = 580.0
-offset_right = 627.0
-offset_bottom = 603.0
-text = "Party size"
 
 [node name="RockFollowNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.40011)
