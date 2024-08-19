@@ -1,6 +1,6 @@
 extends CharacterBody3D
 class_name FancyPlayer
-const SPEED = 400.0
+const SPEED = 8
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0
 
@@ -20,38 +20,28 @@ func _ready():
 	
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Add the gravity.	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
 	$gecko/AnimationPlayer.play("Armature_006")
 	
 	if Input.is_action_pressed("ui_left"):
 		rotate_y(ROTATION_SPEED * delta)
-		#velocity.x = direction.x * SPEED
-		#velocity.z = direction.z * SPEED
 	if Input.is_action_pressed("ui_right"):
 		rotate_y(-ROTATION_SPEED * delta)
 	
-	if Input.is_action_pressed("ui_up"):
-		velocity = global_transform.basis.z.normalized() * SPEED * delta * -1 
-		
-	if Input.is_action_pressed("ui_down"):
-		velocity = global_transform.basis.z.normalized() * SPEED * delta
-		
-	if !Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down"):
+	var input_dir := Input.get_axis("ui_up", "ui_down")
+	var direction := (transform.basis * Vector3(0, 0,input_dir)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
 	if !Input.is_anything_pressed():
 		$gecko/AnimationPlayer.pause()
 	
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-		#velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
 	
@@ -84,8 +74,7 @@ func _process(delta: float) -> void:
 		
 func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("ui_select")):
-		var boulderThreshold = lookingAt.TargetNodes.size()
-		
+		var boulderThreshold = lookingAt.TargetNodes.size()		
 		for i in range (0,boulderThreshold):
 			var partyMemberToDeploy = MyParty.pop_back()
 			if partyMemberToDeploy == null:

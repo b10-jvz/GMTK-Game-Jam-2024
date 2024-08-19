@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://6fmg8wklvy1t"]
+[gd_scene load_steps=9 format=3 uid="uid://6fmg8wklvy1t"]
 
 [ext_resource type="Script" path="res://scenes/levels/character_body_3d.gd" id="1_sjjkj"]
 [ext_resource type="PackedScene" uid="uid://c1l8wfna72n2v" path="res://player/assets/gecko.glb" id="2_iwcx8"]
+[ext_resource type="Script" path="res://character_body_3d.gd" id="3_h363g"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1v64q"]
 radius = 0.644001
@@ -107,5 +108,8 @@ text = "Party size"
 
 [node name="RockFollowNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.40011)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("3_h363g")
 
 [connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
