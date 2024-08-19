@@ -1,8 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://c4sr2nlxjilc2"]
+[gd_scene load_steps=67 format=3 uid="uid://c4sr2nlxjilc2"]
 
-[ext_resource type="PackedScene" uid="uid://ck58gmejxsh4j" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
+[ext_resource type="PackedScene" uid="uid://dtjnm85sqb06p" path="res://scenes/levels/slab-level/slab.tscn" id="1_m8n03"]
 [ext_resource type="PackedScene" uid="uid://6fmg8wklvy1t" path="res://FancyPlayer.tscn" id="2_ysbwk"]
 [ext_resource type="PackedScene" uid="uid://cugq1jlkn13bu" path="res://friendly_gecko_body_3d.tscn" id="3_sxpag"]
+[ext_resource type="PackedScene" uid="uid://dggihl0bv1ba8" path="res://scenes/levels/canyon/boulder.tscn" id="4_uo3qn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0nfvw"]
 
@@ -535,4 +536,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1407, 0.18477, 6.67675)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.28825, 10.4016, -16.4686)
 
 [node name="FriendlyGeckoBody3D5" parent="." instance=ExtResource("3_sxpag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4987, 6.18813, 53.0094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4987, 17.7581, 53.963)
+
+[node name="Boulder" parent="." instance=ExtResource("4_uo3qn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.68302, 28.444)
