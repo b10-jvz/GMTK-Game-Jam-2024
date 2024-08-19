@@ -666,8 +666,11 @@ wait_time = 3.0
 one_shot = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Goal"]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_left = 361.0
+offset_top = 213.0
+offset_right = 761.0
+offset_bottom = 435.0
 text = "You Made It!
 Unbelievable! You Actually made it. The last snowball is safe from the sun and it's seed spitting cult!
 
@@ -703,4 +706,4 @@ BoulderType = 3
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
 [connection signal="body_entered" from="Goal/Area3D" to="Goal" method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Goal/Timer" to="Goal" method="_on_timer_timeout"]
-[connection signal="animation_finished" from="Goal/AnimationPlayer" to="Goal" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Goal/AnimationPlayer" to="Goal" method="_on_animation_player_animation_finished_end_game"]
