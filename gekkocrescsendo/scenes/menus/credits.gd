@@ -10,3 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$RichTextLabel.position.y -= .2
 	pass
+
+
+func _on_timer_timeout() -> void:
+	get_tree().quit()
