@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmpldckbg68om"
+path="res://.godot/imported/Layer 2 GMTK2024 Gecko Crescendo Percussion low.ogg-b993303f2a0994edf541ab36dc66e015.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Layer 2 GMTK2024 Gecko Crescendo Percussion low.ogg"
+dest_files=["res://.godot/imported/Layer 2 GMTK2024 Gecko Crescendo Percussion low.ogg-b993303f2a0994edf541ab36dc66e015.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

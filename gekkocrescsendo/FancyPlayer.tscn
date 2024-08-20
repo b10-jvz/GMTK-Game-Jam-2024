@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://6fmg8wklvy1t"]
+
+[ext_resource type="Script" path="res://scenes/levels/character_body_3d.gd" id="1_sjjkj"]
+[ext_resource type="PackedScene" uid="uid://3anfaxnas0or" path="res://fancy_gecko.tscn" id="2_5kqgh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1v64q"]
+radius = 0.644001
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pflig"]
+height = 4.11078
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sng6k"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yc0f5"]
+material = SubResource("StandardMaterial3D_sng6k")
+radius = 0.1
+height = 0.2
+
+[node name="Player3DBody" type="CharacterBody3D"]
+script = ExtResource("1_sjjkj")
+
+[node name="gecko" parent="." instance=ExtResource("2_5kqgh")]
+transform = Transform3D(-1.09532e-08, 0, 0.25058, 0, 0.25058, 0, -0.25058, 0, -1.09532e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_1v64q")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.981367, 0.192145, 0, -0.192145, 0.981367, 0, 1.60693, 3.46873)
+
+[node name="TouchArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TouchArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.411277, 0)
+shape = SubResource("CapsuleShape3D_pflig")
+
+[node name="FollowNodes" type="Node3D" parent="."]
+
+[node name="FollowNode1" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37873, 0, 0)
+
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
+mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="FollowNode5" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.967, 0, 0)
+
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
+mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="FollowNode4" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78951, 0, 0.812078)
+
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
+mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="FollowNode3" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66948, 0, 0.860747)
+
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
+mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="FollowNode2" type="Node3D" parent="FollowNodes" groups=["FollowNodes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066038, 0, 2.1067)
+
+[node name="debugSphere" type="MeshInstance3D" parent="FollowNodes/FollowNode2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0427532, 0.640827, 0)
+visible = false
+mesh = SubResource("SphereMesh_yc0f5")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.816077, -0.577943, 0, 0.577943, 0.816077, 0, 0, -1.73685)
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+debug_shape_custom_color = Color(0.432311, 0.103257, 0.756749, 1)
+
+[node name="InterractText" type="Label" parent="."]
+visible = false
+offset_left = 553.0
+offset_top = 607.0
+offset_right = 593.0
+offset_bottom = 630.0
+text = "Press SPACEBAR to interract"
+
+[node name="RockFollowNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.40011)
+
+[connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]

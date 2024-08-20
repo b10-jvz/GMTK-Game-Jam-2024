@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df5atdbgi6yfo"
-path.s3tc="res://.godot/imported/Gecko.png-338598d162be28cc5d9f621f66f86f1f.s3tc.ctex"
+uid="uid://lwto2dyqaol7"
+path.s3tc="res://.godot/imported/Tree4.png-6bedfd73ce6c07121d60f54481796b09.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://player/assets/Gecko.png"
-dest_files=["res://.godot/imported/Gecko.png-338598d162be28cc5d9f621f66f86f1f.s3tc.ctex"]
+source_file="res://assets/trees/Tree4.png"
+dest_files=["res://.godot/imported/Tree4.png-6bedfd73ce6c07121d60f54481796b09.s3tc.ctex"]
 
 [params]
 

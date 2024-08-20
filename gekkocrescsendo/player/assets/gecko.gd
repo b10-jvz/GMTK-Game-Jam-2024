@@ -1,9 +1,13 @@
+@tool
 extends Node3D
 
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	await SceneHelper.change_scenes(get_tree(), "res://scenes/menus/home.tscn", 500);
+func _ready():
+	$AnimationPlayer.autoplay = "Armature|ArmatureAction_001"
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass;
+func _process(delta):
+	pass

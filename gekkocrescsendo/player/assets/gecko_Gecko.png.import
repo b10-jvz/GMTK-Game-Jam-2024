@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df5atdbgi6yfo"
-path.s3tc="res://.godot/imported/Gecko.png-338598d162be28cc5d9f621f66f86f1f.s3tc.ctex"
+uid="uid://btphx2ctjcjvs"
+path.s3tc="res://.godot/imported/gecko_Gecko.png-46c5ddc8eb8c7a99e9bd4e854034b5e8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "d88a2743b64b2b528ee60e5278419195"
+}
 
 [deps]
 
-source_file="res://player/assets/Gecko.png"
-dest_files=["res://.godot/imported/Gecko.png-338598d162be28cc5d9f621f66f86f1f.s3tc.ctex"]
+source_file="res://player/assets/gecko_Gecko.png"
+dest_files=["res://.godot/imported/gecko_Gecko.png-46c5ddc8eb8c7a99e9bd4e854034b5e8.s3tc.ctex"]
 
 [params]
 

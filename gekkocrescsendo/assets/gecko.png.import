@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df5atdbgi6yfo"
-path.s3tc="res://.godot/imported/Gecko.png-338598d162be28cc5d9f621f66f86f1f.s3tc.ctex"
+uid="uid://wogei358srq2"
+path="res://.godot/imported/gecko.png-40057976815394b534e58cfbac0fc744.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/Gecko.png"
-dest_files=["res://.godot/imported/Gecko.png-338598d162be28cc5d9f621f66f86f1f.s3tc.ctex"]
+source_file="res://assets/gecko.png"
+dest_files=["res://.godot/imported/gecko.png-40057976815394b534e58cfbac0fc744.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

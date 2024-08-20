@@ -1,9 +1,16 @@
-extends Node3D
+extends Control
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await SceneHelper.change_scenes(get_tree(), "res://scenes/menus/home.tscn", 500);
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass;
+	$RichTextLabel.position.y -= .2
+	pass
+
+
+func _on_timer_timeout() -> void:
+	get_tree().quit()

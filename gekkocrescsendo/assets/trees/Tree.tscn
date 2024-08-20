@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://bop7amsxnial6"]
+
+[ext_resource type="Script" path="res://assets/trees/tree.gd" id="1_8yqf6"]
+[ext_resource type="Texture2D" uid="uid://d07vtyod3v32c" path="res://assets/trees/Tree1.png" id="1_c8uvq"]
+[ext_resource type="Texture2D" uid="uid://0jkyekdh63hr" path="res://assets/trees/Tree2.png" id="2_j2ppr"]
+[ext_resource type="Texture2D" uid="uid://dttlc2br3h4sh" path="res://assets/trees/Tree3.png" id="3_7425u"]
+[ext_resource type="Texture2D" uid="uid://lwto2dyqaol7" path="res://assets/trees/Tree4.png" id="4_2o7aw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bieys"]
+height = 4.86629
+radius = 0.938925
+
+[node name="Tree" type="Node3D"]
+script = ExtResource("1_8yqf6")
+BoulderType = 0
+
+[node name="Sprites" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54491, 8.71769, 0)
+visible = false
+billboard = 2
+shaded = true
+double_sided = false
+texture = ExtResource("1_c8uvq")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87152, 7.79719, 0)
+visible = false
+billboard = 2
+shaded = true
+double_sided = false
+texture = ExtResource("2_j2ppr")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.93083, 0)
+visible = false
+billboard = 2
+shaded = true
+double_sided = false
+texture = ExtResource("3_7425u")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7615, 5.49594, 0)
+billboard = 2
+shaded = true
+double_sided = false
+texture = ExtResource("4_2o7aw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68853, 0)
+shape = SubResource("CylinderShape3D_bieys")

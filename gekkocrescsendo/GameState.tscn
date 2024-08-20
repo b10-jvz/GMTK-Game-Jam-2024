@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://duhfnmtcvsw4w"]
+
+[ext_resource type="Script" path="res://game_state.gd" id="1_48sfu"]
+[ext_resource type="AudioStream" uid="uid://r57teuvebo7w" path="res://music/Layer 1 GMTK2024 Gecko Crescendo Strings.ogg" id="2_cjv7r"]
+[ext_resource type="AudioStream" uid="uid://bmpldckbg68om" path="res://music/Layer 2 GMTK2024 Gecko Crescendo Percussion low.ogg" id="3_xbayk"]
+[ext_resource type="AudioStream" uid="uid://cyk62cwukf4oy" path="res://music/Layer 3 GMTK2024 Gecko Crescendo Woodwinds.ogg" id="4_32dij"]
+[ext_resource type="AudioStream" uid="uid://b11pdpw3ytkmc" path="res://music/Layer 4 GMTK2024 Gecko Crescendo Percussion high.ogg" id="5_kbr1q"]
+[ext_resource type="AudioStream" uid="uid://irk1ekr6on3e" path="res://music/Layer 5 GMTK2024 Gecko Crescendo Brass.ogg" id="6_uc62p"]
+[ext_resource type="AudioStream" uid="uid://ddk2tkwkwqdf5" path="res://music/Layer 6 GMTK2024 Gecko Crescendo Glock.ogg" id="7_1txg6"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_48sfu")
+
+[node name="MusicLayers" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicLayers"]
+stream = ExtResource("2_cjv7r")
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MusicLayers"]
+stream = ExtResource("3_xbayk")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="MusicLayers"]
+stream = ExtResource("4_32dij")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="MusicLayers"]
+stream = ExtResource("5_kbr1q")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="MusicLayers"]
+stream = ExtResource("6_uc62p")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="MusicLayers"]
+stream = ExtResource("7_1txg6")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

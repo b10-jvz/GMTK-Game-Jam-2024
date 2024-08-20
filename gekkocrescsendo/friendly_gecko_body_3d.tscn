@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cugq1jlkn13bu"]
+
+[ext_resource type="Script" path="res://friendly_gecko_body_3d.gd" id="1_336x4"]
+[ext_resource type="PackedScene" uid="uid://c1l8wfna72n2v" path="res://player/assets/gecko.glb" id="2_6euuc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_myhoh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_si7f4"]
+albedo_color = Color(0.113725, 0.176471, 0.341176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmvrd"]
+material = SubResource("StandardMaterial3D_si7f4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhg1y"]
+size = Vector3(1.1, 1.1, 1.1)
+
+[node name="FriendlyGeckoBody3D" type="CharacterBody3D" groups=["friendlyBoys"]]
+script = ExtResource("1_336x4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_myhoh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
+mesh = SubResource("BoxMesh_kmvrd")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_uhg1y")
+
+[node name="gecko" parent="." instance=ExtResource("2_6euuc")]
+transform = Transform3D(-0.0345772, 0, 0.247597, 0, 0.25, 0, -0.247597, 0, -0.0345772, 0, 0, 0)
