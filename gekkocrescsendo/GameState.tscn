@@ -20,29 +20,31 @@ parameters/looping = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MusicLayers"]
 stream = ExtResource("3_xbayk")
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="MusicLayers"]
 stream = ExtResource("4_32dij")
-volume_db = -0.5
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="MusicLayers"]
 stream = ExtResource("5_kbr1q")
-volume_db = -4.0
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="MusicLayers"]
 stream = ExtResource("6_uc62p")
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="MusicLayers"]
 stream = ExtResource("7_1txg6")
-volume_db = -15.0
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
